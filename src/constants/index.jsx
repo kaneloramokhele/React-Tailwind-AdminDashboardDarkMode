@@ -200,6 +200,7 @@ export const settingsList = [
         icon: <MdSettings />,
         href: '/settings',
         title: 'Settings',
+        submenu: true,
         submenuItems: [
           {id: "setting-1-1", href: "/general", title: "General settings"},
           {id: "setting-1-2", href: "/suported_currency", title: "Supported currency"},

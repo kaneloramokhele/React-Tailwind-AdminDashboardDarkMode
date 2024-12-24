@@ -12,7 +12,6 @@ import {
     MdWarningAmber,
 } from "react-icons/md";
 
-
 import { 
     mainList, 
     loansList, 
@@ -20,11 +19,10 @@ import {
     settingsList,  
 } from "../constants/index.jsx";
 
-
 // Helper function to truncate text
 const truncateText = (text, isExpanded, maxLength) => {
-  if (isExpanded) return text;
-  return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
+    if (isExpanded) return text;
+    return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
 };
 
 export default function Sidebar({ isExpanded }) {
@@ -50,18 +48,21 @@ export default function Sidebar({ isExpanded }) {
                         to={link.href}
                         className={`text-gray-300 text-sm flex items-center gap-x-4 cursor-pointer p-2 hover:bg-slate-500 rounded-md mt-1 ${
                             link.spacing ? "mb-0" : "mb-0"
-                        }`}>
+                        }`}
+                    >
                         <span className="text-2xl block">{link.icon ? link.icon : <MdWarningAmber />}</span>
                         <span
                             className={`text-base font-medium flex-1 ${
                                 !isExpanded && "hidden"
-                            }`}>
+                            }`}
+                        >
                             {truncateText(link.title, isExpanded, 6)}
                         </span>
                         {link.submenu && isExpanded && (
                             <MdExpandMore
                                 onClick={() => toggleSubmenu(link.id)}
-                                className={`${openSubmenus[link.id] && "rotate-180"}`}/>
+                                className={`${openSubmenus[link.id] && "rotate-180"}`}
+                            />
                         )}
                     </Link>
                     {link.submenu && openSubmenus[link.id] && isExpanded && (
@@ -70,7 +71,8 @@ export default function Sidebar({ isExpanded }) {
                                 <li key={submenuItem.id}>
                                     <Link
                                         to={submenuItem.href}
-                                        className="text-[#fff] text-sm flex items-center gap-x-4 cursor-pointer p-1 px-5 hover:bg-slate-500 rounded-md mt-1">
+                                        className="text-[#fff] text-sm flex items-center gap-x-4 cursor-pointer p-1 px-5 hover:bg-slate-500 rounded-md mt-1"
+                                    >
                                         <MdLink />
                                         {submenuItem.title}
                                     </Link>
@@ -85,23 +87,25 @@ export default function Sidebar({ isExpanded }) {
 
     return (
         <div
-            className={`bg-[#080824] h-screen fixed p-5 pt-5 text-white transition-all duration-300 ${
+            className={`bg-[#080824] h-screen fixed p-5 text-white transition-all duration-300 ${
                 isExpanded ? "w-72" : "w-20"
             }`}
         >
-            <div className="inline-flex">
+            {/* Logo/Brand Section */}
+            <div className="inline-flex mb-4">
                 <Link
                     to="/"
                     className={`flex items-center justify-center hover:text-blue-800 duration-300 ${
-                        isExpanded && "rotate-[360deg]" ? "justify-start" : "justify-center"
+                        isExpanded ? "justify-start" : "justify-center"
                     }`}
                 >
                     <MdMonetizationOn className="text-4xl" />
-                    {isExpanded && <span className="ml-2 text-lg font-semibold">Brand Name</span>}
+                    {isExpanded && <span className="ml-2 text-lg font-semibold uppercase">Aliens Imperium</span>}
                 </Link>
             </div>
 
-            <nav className="mt-8">
+            {/* Navigation Section */}
+            <nav className="overflow-y-auto h-[calc(100%-80px)]">
                 <div>
                     <h2 className="text-lg font-bold text-gray-600">
                         {truncateText("Main", isExpanded, 4)}
