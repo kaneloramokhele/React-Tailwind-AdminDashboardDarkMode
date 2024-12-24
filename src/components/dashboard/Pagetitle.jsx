@@ -1,26 +1,27 @@
-// src/components/Pagetitle.jsx
+// src/components/dashboard/Pagetitle.jsx
 // rafce / rfce
-
 
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
 import { MdDoorFront } from "react-icons/md";
-
-import '../styles/components/pagetitle.css'
 
 function Pagetitle({ page }) {
   return (
-    <div className='pagetitle'>
-      <h1>{page}</h1>
-      <nav>
-        <ol className='breadcrumb'>
-            <li className='breadcrumb-item'>
-                <Link to='/'>
-                    <MdDoorFront />
-                </Link>
-            </li>
-            <li className='breadcrumb-item active'>{page}</li>
+    <div className="mb-4">
+      <h1 className="text-2xl font-semibold text-gray-900">{page}</h1>
+      <nav className="mt-2">
+        <ol className="flex items-center space-x-2 text-sm text-gray-600">
+          <li>
+            <Link 
+              to="/" 
+              className="text-blue-600 hover:text-blue-800"
+            >
+              <MdDoorFront className="inline-block text-lg" />
+            </Link>
+          </li>
+          <li className="before:content-['/'] before:mx-2 before:text-gray-400">
+            <span className="text-gray-700">{page}</span>
+          </li>
         </ol>
       </nav>
     </div>
@@ -33,7 +34,6 @@ Pagetitle.propTypes = {
 };
 
 export default Pagetitle;
-
 
 
 
