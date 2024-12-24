@@ -1,62 +1,67 @@
-// src/components/nav/NavProfile.jsx
+// src/components/headernav/NavProfile.jsx
 // rafce / rfce
 
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { 
-    MdWarningAmber,
-    MdLogout 
+  MdWarningAmber,
+  MdLogout 
 } from "react-icons/md";
 
 import { profileList } from '../../constants/index';
 
 function NavProfile() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeDropdown = () => {
+    setIsOpen(false);
+  };
+
   return (
-    <li className='nav-item dropdown pe-3'>
+    <li className="relative">
       <Link 
-        to="/"
-        data-bs-toggle="dropdown"
-        className='nav-link nav-profile d-flex align-items-center pe-0'>
-        
-        <img src="/profile.png" alt="profile_image" className='rounded-circle' />
-        <span className='d-none d-md-block dropdown-toggle ps-2'>Doe</span>
+        to="#"
+        className="flex items-center space-x-2"
+        onClick={toggleDropdown}>
+        <img 
+          src="/profile.png" 
+          alt="profile_image" 
+          className="w-9 h-9 rounded-full" 
+        />
       </Link>
 
-      <ul className='dropdown-menu dropdown-menu-end dropdown-menu-arrow profile'>
-        <li className='dropdown-header'>
-            <h6>John Doe</h6>
-            <span>
-                Software Engineer
-            </span>
+      <ul 
+        className={`absolute right-0 mt-2 w-64 bg-white border border-gray-200 rounded-lg shadow-lg ${isOpen ? 'block' : 'hidden'}`}
+        onMouseLeave={closeDropdown}>
+        <li className="text-center px-4 py-2 border-b">
+          <h6 className="text-sm font-semibold text-gray-800">John Doe</h6>
+          <span className="text-xs text-gray-500">Software Engineer</span>
         </li>
 
-        <li>
-            <hr className='dropdown-divider' />
-        </li>
-
-        <li>
-            {profileList.map((profile) => (
+        <li className="divide-y divide-gray-200">
+          {profileList.map((profile) => (
             <Link 
-                key={profile.id}
-                to={profile.href}
-                className='dropdown-item d-flex align-items-center'>
-                <span className="icon">{profile.icon ? profile.icon : <MdWarningAmber />}</span>
-                <span>{profile.title}</span>
+              key={profile.id}
+              to={profile.href}
+              className="flex items-center px-4 py-2 hover:bg-gray-100">
+              <span className="text-xl text-gray-700 mr-2">{profile.icon ? profile.icon : <MdWarningAmber />}</span>
+              <span className="text-sm text-gray-700">{profile.title}</span>
             </Link>
-            ))}
+          ))}
         </li>
 
-        <li>
-            <hr className='dropdown-divider' />
-        </li>
-
-        <li>
-            <Link 
-                to="#"
-                className='dropdown-item d-flex align-items-center sign-out'>
-                <MdLogout className='icon' />
-                <span>Sign out</span>
-            </Link>
+        <li className="border-t">
+          <Link 
+            to="#"
+            className="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-100">
+            <MdLogout className="text-xl mr-2" />
+            <span>Sign out</span>
+          </Link>
         </li>
       </ul>
     </li>
@@ -64,5 +69,3 @@ function NavProfile() {
 }
 
 export default NavProfile;
-
-

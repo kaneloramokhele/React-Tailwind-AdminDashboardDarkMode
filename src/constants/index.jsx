@@ -138,7 +138,7 @@ export const settingsList = [
 ];
 
 
-export const noticeList = [
+export const notificationsList = [
   {
     id: 1,
     icon: <MdWarningAmber className='icon text-warning' />,
@@ -174,7 +174,7 @@ export const noticeList = [
 ];
 
 
-export const messageList = [
+export const messagesList = [
   {
     id: 1,
     img: "",
