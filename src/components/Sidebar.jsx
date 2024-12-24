@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { 
     MdMonetizationOn, 
-    MdOutlineArrowDropDownCircle,
+    MdExpandMore,
     MdLink,
     MdWarningAmber,
 } from "react-icons/md";
@@ -15,7 +15,7 @@ import {
 
 import { 
     mainList, 
-    customersList, 
+    loansList, 
     productsList, 
     settingsList,  
 } from "../constants/index.jsx";
@@ -59,9 +59,9 @@ export default function Sidebar({ isExpanded }) {
                             {truncateText(link.title, isExpanded, 6)}
                         </span>
                         {link.submenu && isExpanded && (
-                            <MdOutlineArrowDropDownCircle
+                            <MdExpandMore
                                 onClick={() => toggleSubmenu(link.id)}
-                                className={`text-xl ${openSubmenus[link.id] && "rotate-180"}`}/>
+                                className={`${openSubmenus[link.id] && "rotate-180"}`}/>
                         )}
                     </Link>
                     {link.submenu && openSubmenus[link.id] && isExpanded && (
@@ -113,7 +113,7 @@ export default function Sidebar({ isExpanded }) {
                     <h2 className="text-lg font-bold text-gray-600">
                         {truncateText("Customers", isExpanded, 4)}
                     </h2>
-                    {renderLinks(customersList)}
+                    {renderLinks(loansList)}
                 </div>
 
                 <div className="mt-4">

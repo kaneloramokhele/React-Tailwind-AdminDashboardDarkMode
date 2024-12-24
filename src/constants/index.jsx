@@ -34,29 +34,48 @@ export const mainList = [
     icon: <MdAnalytics />,
     href: "/",
     title: "Analytics",
+    submenu: true,
+    submenuItems: [
+      {id: "main-2-1", href: "/", title: "Users"},
+      {id: "main-2-2", href: "/", title: "Loans"},
+    ],
   },
   {
     id: "main-3",
     icon: <MdListAlt />,
-    href: "/",
+    href: "/reports",
     title: "Reports",
+    submenu: true,
+    submenuItems: [
+      {id: "main-3-1", href: "/acc_statement", title: "Acc Statement"},
+      {id: "main-3-2", href: "/acc_balance", title: "Acc Balance"},
+      {id: "main-3-3", href: "/loan_report", title: "Loan Report"},
+      {id: "main-3-4", href: "/loan_due", title: "Loan Due Report"},
+      {id: "main-3-5", href: "/loan_repayment", title: "Loan Repayment Report"},
+      {id: "main-3-6", href: "/transaction", title: "Transaction Report"},
+      {id: "main-3-7", href: "/expense", title: "Expense Report"},
+      {id: "main-3-8", href: "/revenue", title: "Revenue Report"},
+    ],
   },
   {
     id: "main-4",
     icon: <MdPeople />,
-    href: "/",
+    href: "/users",
     title: "Users",
     spacing: true,
     submenu: true,
     submenuItems: [
-      {id: "main-4-1", href: "/", title: "User sub 1"},
-      {id: "main-4-2", href: "/", title: "User sub 2"},
+      {id: "main-4-1", href: "/list", title: "View all"},
+      {id: "main-4-2", href: "/create", title: "Create user"},
+      {id: "main-4-3", href: "/import", title: "Bulk import"},
+      {id: "main-4-4", href: "/custom", title: "Custom fields"},
+      {id: "main-4-5", href: "/request", title: "Member request"},
     ],
   },
 ];
 
 
-export const customersList = [
+export const loansList = [
   {
     id: "customer-1",
     icon: <MdGroups />,
@@ -76,9 +95,19 @@ export const customersList = [
     spacing: true,
     submenu: true,
     submenuItems: [
-      {id: "customer-2-1", href: "/", title: "Loan sub 1"},
-      {id: "customer-2-2", href: "/", title: "Loan sub 2"},
+      {id: "customer-2-1", href: "/list", title: "All loans"},
+      {id: "customer-2-2", href: "/pending", title: "Pending loans"},
+      {id: "customer-2-3", href: "/active", title: "Active loans"},
+      {id: "customer-2-4", href: "/calculator", title: "Loan calculator"},
+      {id: "customer-2-5", href: "/products", title: "Loan products"},
+      {id: "customer-2-6", href: "/custom", title: "Custom fields"},
     ],
+  },
+  {
+    id: "customer-3",
+    icon: <MdMoney />,
+    href: "/repayments",
+    title: "Repayments",
   },
 ];
 
