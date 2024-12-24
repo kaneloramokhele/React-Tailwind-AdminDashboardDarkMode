@@ -20,10 +20,6 @@ import {
     settingsList,  
 } from "../constants/index.jsx";
 
-// Helper function to truncate text
-// const truncateText = (text, maxLength) => {
-//     return text.length > maxLength ? text.slice(0, maxLength) : text;
-// };
 
 // Helper function to truncate text
 const truncateText = (text, isExpanded, maxLength) => {
@@ -34,23 +30,16 @@ const truncateText = (text, isExpanded, maxLength) => {
 export default function Sidebar({ isExpanded }) {
     const [openSubmenus, setOpenSubmenus] = useState({});
 
-    // const toggleSubmenu = (id) => {
-    //     setOpenSubmenus((prevState) => {
-    //         const newState = {};
-
-    //         if (!prevState[id]) {
-    //             newState[id] = true;
-    //         }
-
-    //         return newState;
-    //     });
-    // };
-
     const toggleSubmenu = (id) => {
-        setOpenSubmenus((prevState) => ({
-        ...prevState,
-        [id]: !prevState[id],
-        }));
+        setOpenSubmenus((prevState) => {
+            const newState = {};
+
+            if (!prevState[id]) {
+                newState[id] = true;
+            }
+
+            return newState;
+        });
     };
 
     const renderLinks = (links) => (
