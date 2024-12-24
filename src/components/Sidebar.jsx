@@ -16,7 +16,7 @@ import {
 import { 
     mainList, 
     loansList, 
-    productsList, 
+    acountsList, 
     settingsList,  
 } from "../constants/index.jsx";
 
@@ -111,16 +111,16 @@ export default function Sidebar({ isExpanded }) {
 
                 <div className="mt-4">
                     <h2 className="text-lg font-bold text-gray-600">
-                        {truncateText("Customers", isExpanded, 4)}
+                        {truncateText("Loans", isExpanded, 4)}
                     </h2>
                     {renderLinks(loansList)}
                 </div>
 
                 <div className="mt-4">
                     <h2 className="text-lg font-bold text-gray-600">
-                        {truncateText("Products", isExpanded, 4)}
+                        {truncateText("Accounts", isExpanded, 4)}
                     </h2>
-                    {renderLinks(productsList)}
+                    {renderLinks(acountsList)}
                 </div>
 
                 <div className="mt-4">

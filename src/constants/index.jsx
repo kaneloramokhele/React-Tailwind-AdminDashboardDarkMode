@@ -21,6 +21,7 @@ import {
 } from "react-icons/md";
 
 
+// **************************** SIDEBAR LISTS *********************************
 // 0. NAVIGATION
 export const mainList = [
   {
@@ -61,46 +62,46 @@ export const mainList = [
     id: "main-4",
     icon: <MdPeople />,
     href: "/users",
-    title: "Users",
+    title: "User Management",
+    submenu: true,
+    submenuItems: [
+      {id: "main-4-1", href: "/list", title: "All users"},
+      {id: "main-4-2", href: "/roles", title: "User roles"},
+      {id: "main-4-3", href: "/control", title: "Account control"},
+    ],
+  },
+  {
+    id: "main-5",
+    icon: <MdGroups />,
+    href: "/members",
+    title: "Members",
     spacing: true,
     submenu: true,
     submenuItems: [
-      {id: "main-4-1", href: "/list", title: "View all"},
-      {id: "main-4-2", href: "/create", title: "Create user"},
-      {id: "main-4-3", href: "/import", title: "Bulk import"},
-      {id: "main-4-4", href: "/custom", title: "Custom fields"},
-      {id: "main-4-5", href: "/request", title: "Member request"},
+      {id: "main-5-1", href: "/list", title: "View all"},
+      {id: "main-5-2", href: "/create", title: "Create user"},
+      {id: "main-5-3", href: "/import", title: "Bulk import"},
+      {id: "main-5-4", href: "/custom", title: "Custom fields"},
+      {id: "main-5-5", href: "/request", title: "Member request"},
     ],
   },
 ];
 
-
+// LOANS
 export const loansList = [
   {
-    id: "customer-1",
-    icon: <MdGroups />,
-    href: "/",
-    title: "Customers",
-    submenu: true,
-    submenuItems: [
-      {id: "customer-1-1", href: "/", title: "Customer sub 1"},
-      {id: "customer-1-2", href: "/", title: "Customer sub 1"},
-    ],
-  },
-  {
-    id: "customer-2",
+    id: "loan-1",
     icon: <MdMoney />,
     href: "/",
     title: "Loans",
-    spacing: true,
     submenu: true,
     submenuItems: [
-      {id: "customer-2-1", href: "/list", title: "All loans"},
-      {id: "customer-2-2", href: "/pending", title: "Pending loans"},
-      {id: "customer-2-3", href: "/active", title: "Active loans"},
-      {id: "customer-2-4", href: "/calculator", title: "Loan calculator"},
-      {id: "customer-2-5", href: "/products", title: "Loan products"},
-      {id: "customer-2-6", href: "/custom", title: "Custom fields"},
+      {id: "loan-1-1", href: "/list", title: "All loans"},
+      {id: "loan-1-2", href: "/pending", title: "Pending loans"},
+      {id: "loan-1-3", href: "/active", title: "Active loans"},
+      {id: "loan-1-4", href: "/calculator", title: "Loan calculator"},
+      {id: "loan-1-5", href: "/products", title: "Loan products"},
+      {id: "loan-1-6", href: "/custom", title: "Custom fields"},
     ],
   },
   {
@@ -108,45 +109,106 @@ export const loansList = [
     icon: <MdMoney />,
     href: "/repayments",
     title: "Repayments",
+    spacing: true,
   },
 ];
 
-export const productsList = [
+
+// ACCOUNTS
+export const acountsList = [
   {
-    id: "product-1",
+    id: "account-1",
     icon: <MdProductionQuantityLimits />,
-    href: "/",
-    title: "Products",
+    href: "/accounts",
+    title: "Accounts",
     submenu: true,
     submenuItems: [
-      {id: "product-1-1", href: "/", title: "Product sub 1"},
-      {id: "product-1-2", href: "/", title: "Product sub 2"},
+      {id: "account-1-1", href: "/list", title: "All accounts"},
+      {id: "account-1-2", href: "/interest", title: "Interest Calculation"},
+      {id: "account-1-3", href: "/type", title: "Account type"},
     ],
   },
   {
-    id: "product-2",
+    id: "account-2",
     icon: <MdPriceChange />,
-    href: "/",
-    title: "Inventory",
+    href: "/deposit",
+    title: "Deposit",
+    submenu: true,
+    submenuItems: [
+      {id: "account-2-1", href: "/money", title: "Deposit money"},
+      {id: "account-2-2", href: "/request", title: "Deposit request"},
+    ],
+  },
+  {
+    id: "account-3",
+    icon: <MdPriceChange />,
+    href: "/deposit_methods",
+    title: "Deposit Methods",
+    submenu: true,
+    submenuItems: [
+      {id: "account-3-1", href: "/automatic", title: "Automatic gateway"},
+      {id: "account-3-2", href: "/Manual", title: "Manual gateway"},
+    ],
+  },
+  {
+    id: "account-4",
+    icon: <MdPriceChange />,
+    href: "/withdraw",
+    title: "Withdraw",
+    submenu: true,
+    submenuItems: [
+      {id: "account-4-1", href: "/money", title: "Withdraw money"},
+      {id: "account-4-2", href: "/request", title: "Withdraw request"},
+    ],
+  },
+  {
+    id: "account-5",
+    icon: <MdPriceChange />,
+    href: "/withdraw_method",
+    title: "Withdraw Method",
+  },
+  {
+    id: "account-6",
+    icon: <MdPriceChange />,
+    href: "/transaction",
+    title: "Transaction",
+    submenu: true,
+    submenuItems: [
+      {id: "account-6-1", href: "/new", title: "New transaction"},
+      {id: "account-6-2", href: "/history", title: "Transaction history"},
+      {id: "account-6-3", href: "/category", title: "Transaction category"},
+    ],
+  },
+  {
+    id: "account-7",
+    icon: <MdPriceChange />,
+    href: "/expense",
+    title: "Expenses",
     spacing: true,
     submenu: true,
     submenuItems: [
-      {id: "product-2-1", href: "/", title: "Inventory sub 1"},
-      {id: "product-2-2", href: "/", title: "Inventory sub 2"},
+      {id: "account-7-1", href: "/list", title: "All expenses"},
+      {id: "account-7-2", href: "/history", title: "Expenses history"},
     ],
   },
 ];
 
-
+// SETTINGS
 export const settingsList = [
     {
-        id: 1,
+        id: "setting-1",
         icon: <MdSettings />,
         href: '/settings',
         title: 'Settings',
+        submenuItems: [
+          {id: "setting-1-1", href: "/general", title: "General settings"},
+          {id: "setting-1-2", href: "/suported_currency", title: "Supported currency"},
+          {id: "setting-1-3", href: "/notification", title: "Notification template"},
+          {id: "setting-1-4", href: "/database_backup", title: "Database backup"},
+        ],
     },
     {
-        id: 2,
+        id: "setting-1",
         icon: <MdChecklist />,
         href: '/faq',
         title: 'F.A.Q',
@@ -167,6 +229,7 @@ export const settingsList = [
 ];
 
 
+// **************************** HEADER LISTS *********************************
 export const notificationsList = [
   {
     id: 1,
