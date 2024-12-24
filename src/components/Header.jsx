@@ -1,8 +1,8 @@
 // src/components/Header.jsx
 // rafce / rfce
 
-import PropTypes from "prop-types"; // Import PropTypes for props validation
 import { useState } from "react";
+import PropTypes from "prop-types";
 
 import {
   MdKeyboardDoubleArrowLeft,
@@ -10,18 +10,22 @@ import {
   MdSearch,
 } from "react-icons/md";
 
-
-import NavNotice from "./headernav/NavNotice";
+import NavNotice from "./headernav/NavNotification";
 import NavMessage from "./headernav/NavMessage";
 import NavProfile from "./headernav/NavProfile";
 
 function Header({ isExpanded, toggleSidebar }) {
 
   const [isDarkMode, setIsDarkMode] = useState(false);
-  
+  const [openNav, setOpenNav] = useState(null); // State to track which nav is open
+
   const handleThemeToggle = () => {
     setIsDarkMode(!isDarkMode);
     document.documentElement.classList.toggle('dark');
+  };
+
+  const handleNavToggle = (nav) => {
+    setOpenNav(openNav === nav ? null : nav); // Toggle the clicked nav or close if already open
   };
 
   return (
@@ -47,26 +51,24 @@ function Header({ isExpanded, toggleSidebar }) {
         </div>
       </div>
 
-      
       {/* Right Section: Theme Toggle, Notifications, Messages, Profile */}
       <div className="flex items-center gap-4">
-          <button
+        <button
           onClick={handleThemeToggle}
           className="text-2xl hover:text-blue-500 transition-colors">
           {isDarkMode ? <MdLightMode /> : <MdDarkMode />}
-          </button>
+        </button>
 
-          <ul className="flex items-center gap-4">
-            <NavNotice />
-            <NavMessage />
-            <NavProfile />
-          </ul>
+        <ul className="flex items-center gap-4">
+          <NavNotice isOpen={openNav === 'notification'} onToggle={() => handleNavToggle('notification')} />
+          <NavMessage isOpen={openNav === 'message'} onToggle={() => handleNavToggle('message')} />
+          <NavProfile isOpen={openNav === 'profile'} onToggle={() => handleNavToggle('profile')} />
+        </ul>
       </div>
     </header>
   );
 }
 
-// Add PropTypes validation for isExpanded and toggleSidebar
 Header.propTypes = {
   isExpanded: PropTypes.bool.isRequired,
   toggleSidebar: PropTypes.func.isRequired,
