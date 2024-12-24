@@ -3,6 +3,7 @@
 
 
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import { MdDoorFront } from "react-icons/md";
 
@@ -25,6 +26,11 @@ function Pagetitle({ page }) {
     </div>
   );
 }
+
+// Add PropTypes validation
+Pagetitle.propTypes = {
+  page: PropTypes.string.isRequired, // Ensure 'page' is a required string
+};
 
 export default Pagetitle;
 

@@ -2,8 +2,9 @@
 // rafce / rfce
 
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types'; // Import PropTypes
 
-import { GoKebabHorizontal } from "react-icons/go";
+import { MdFilterList } from "react-icons/md";
 
 function CardFilter({ filterChange }) {
   return (
@@ -12,7 +13,7 @@ function CardFilter({ filterChange }) {
             to="/filter" 
             className="icon"
             data-bs-toggle="dropdown">
-                <GoKebabHorizontal />
+                <MdFilterList />
         </Link>
         <ul className="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
             <li className='dropdown-header text-start'>
@@ -50,5 +51,10 @@ function CardFilter({ filterChange }) {
     </div>
   );
 }
+
+// Add PropTypes validation
+CardFilter.propTypes = {
+  filterChange: PropTypes.func.isRequired, // Ensure filterChange is a required function
+};
 
 export default CardFilter

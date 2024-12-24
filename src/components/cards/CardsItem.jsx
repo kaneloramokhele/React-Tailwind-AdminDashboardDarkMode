@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import { MdWarning } from "react-icons/md";
 
-import CardFilter from './CardFilter';
+import CardFilter from '../CardFilter';
 
 import '../styles/components/card.css'
 
